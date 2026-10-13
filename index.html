@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore internship opportunities by domain, work mode, and keyword.">
+  <title>Launchpad — Internship Board</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to internship listings</a>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="#" aria-label="Launchpad home">
+        <span class="brand-mark" aria-hidden="true">L</span>
+        <span>launchpad<span class="brand-dot">.</span><small>CAREER STARTS HERE</small></span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#opportunities" class="nav-link active">Opportunities</a>
+        <a href="#how-it-works" class="nav-link">How it works</a>
+      </nav>
+      <a class="nav-cta" href="#opportunities">Explore roles <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> YOUR NEXT CHAPTER STARTS HERE</p>
+        <h1>Find work that<br><span>moves you forward.</span></h1>
+        <p class="hero-description">Discover meaningful internships, build real-world skills, and turn your curiosity into a career.</p>
+        <a class="primary-button" href="#opportunities">Find your opportunity <span aria-hidden="true">→</span></a>
+        <div class="hero-proof"><div class="avatar-stack" aria-hidden="true"><span>A</span><span>M</span><span>J</span></div><p><strong>Start small. Grow boldly.</strong><br><span>Your next opportunity is one search away.</span></p></div>
+      </div>
+      <div class="hero-art" aria-label="Illustration of a career growth dashboard">
+        <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+        <div class="art-card floating-card card-top"><span class="mini-icon purple">✦</span><div><strong>New possibilities</strong><small>Every day is a fresh start</small></div></div>
+        <div class="growth-card">
+          <div class="growth-head"><span class="growth-icon">↗</span><span class="growth-pill">YOUR GROWTH</span></div>
+          <p class="growth-title">Build your future</p>
+          <div class="chart" aria-hidden="true"><span style="height:30%"></span><span style="height:44%"></span><span style="height:38%"></span><span style="height:60%"></span><span style="height:54%"></span><span style="height:77%"></span><span style="height:92%"></span></div>
+          <div class="chart-labels"><span>START</span><span>GROW</span><span>THRIVE</span></div>
+        </div>
+        <div class="art-card floating-card card-bottom"><span class="mini-icon mint">✓</span><div><strong>Skills in action</strong><small>Learn by doing</small></div></div>
+        <div class="art-spark spark-one">✳</div><div class="art-spark spark-two">✦</div>
+      </div>
+    </section>
+
+    <section class="stats" aria-label="Platform highlights">
+      <div><strong>Real-world</strong><span>learning experiences</span></div>
+      <div><strong>Multiple</strong><span>career domains</span></div>
+      <div><strong>Your pace</strong><span>your next step</span></div>
+    </section>
+
+    <section class="opportunities section-wrap" id="opportunities">
+      <div class="section-heading">
+        <div><p class="eyebrow">THE OPPORTUNITY BOARD</p><h2>Make your next move.</h2><p class="section-subtitle">A curated starting point for curious minds and future builders.</p></div>
+        <span class="results-badge" id="results-count" aria-live="polite">Loading roles…</span>
+      </div>
+      <form class="filter-panel" id="filter-form" role="search">
+        <div class="search-field">
+          <label for="search-input">Search opportunities</label>
+          <div class="input-wrap"><span aria-hidden="true">⌕</span><input id="search-input" name="search" type="search" placeholder="Role, skill, or company…" autocomplete="off"></div>
+        </div>
+        <div class="select-field">
+          <label for="domain-filter">Domain</label>
+          <select id="domain-filter" name="domain"><option value="all">All domains</option></select>
+        </div>
+        <div class="select-field">
+          <label for="mode-filter">Work mode</label>
+          <select id="mode-filter" name="mode"><option value="all">Any work mode</option><option value="Remote">Remote</option><option value="Hybrid">Hybrid</option><option value="On-site">On-site</option></select>
+        </div>
+        <button class="reset-button" id="reset-button" type="reset">Reset filters</button>
+      </form>
+      <p class="filter-summary" id="filter-summary" aria-live="polite">Showing all available opportunities.</p>
+      <div class="status-message" id="status-message" role="status" hidden></div>
+      <div class="internship-grid" id="internship-grid" aria-label="Internship opportunities"></div>
+      <div class="empty-state" id="empty-state" hidden>
+        <div class="empty-illustration" aria-hidden="true">⌕</div><h3>No matching opportunities</h3><p>Try another keyword or broaden your filters to see more roles.</p><button class="primary-button compact" id="empty-reset" type="button">Clear all filters</button>
+      </div>
+      <div class="error-state" id="error-state" hidden>
+        <span class="error-symbol" aria-hidden="true">!</span><h3>We couldn’t load the board</h3><p>The internship records could not be displayed. Please try again.</p><button class="outline-button" id="retry-button" type="button">Try again</button>
+      </div>
+      <p class="data-note"><span aria-hidden="true">ⓘ</span> Sample listings are fictional and provided for interface demonstration only.</p>
+    </section>
+
+    <section class="how-section" id="how-it-works">
+      <div class="section-wrap how-inner"><div><p class="eyebrow">A SIMPLE START</p><h2>Three steps.<br><span>One big beginning.</span></h2></div>
+        <div class="steps"><article><span>01</span><h3>Explore</h3><p>Browse roles that match your interests and skills.</p></article><article><span>02</span><h3>Find your fit</h3><p>Use filters to narrow down the possibilities.</p></article><article><span>03</span><h3>Take the next step</h3><p>Review a role and follow its application details.</p></article></div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="footer-inner"><a class="brand footer-brand" href="#"><span class="brand-mark" aria-hidden="true">L</span><span>launchpad<span class="brand-dot">.</span><small>CAREER STARTS HERE</small></span></a><p>Built for the beginning of something great.</p><span>Demo project · Internship Board</span></div></footer>
+  <dialog id="details-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-top"><span class="dialog-label">OPPORTUNITY DETAILS</span><button class="dialog-close" id="dialog-close" type="button" aria-label="Close details">×</button></div>
+    <div id="dialog-content"></div>
+  </dialog>
+  <script src="app.js" defer></script>
+</body>
+</html>
