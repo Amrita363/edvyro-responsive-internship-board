@@ -1,51 +1,44 @@
-# Launchpad — Responsive Internship Board
+# EdVyro Task 3 — REST API and Persistent Data
 
-A framework-free internship listing interface built with semantic HTML, responsive CSS, and vanilla JavaScript.
+Node.js + Express API using Node's built-in `node:sqlite` database, avoiding native addon compilation.
 
-## Features
-- Responsive layouts for mobile, tablet, and desktop
-- Search by role, company, domain, location, or skill
-- Domain and work-mode filters that can be combined
-- Live result count and active-filter summary
-- Empty state with a one-click reset
-- Error-state UI and retry interaction
-- Accessible form labels, skip link, keyboard-friendly controls, focus indicators, and a keyboard-dismissible details dialog
-- Save/unsave opportunity controls
-- Reusable card rendering from structured JavaScript data
-- Fictional sample opportunities, clearly labelled as demo data
-- Reduced-motion preference support
+## Requirements
+Node.js 22.13+ and npm.
 
-## Run locally
-No framework or package installation is required. Open `index.html` in a browser, or run a local server:
+## Run on Windows
+```powershell
+npm install
+npm run seed
+npm start
+```
+Open `http://localhost:3000/api/health`.
 
-```bash
-python -m http.server 8000
+## Endpoints
+| Method | Endpoint | Purpose |
+|---|---|---|
+| GET | `/api/health` | Health check |
+| GET | `/api/internships?page=1&limit=10` | List, paginate, search/filter |
+| GET | `/api/internships/:id` | Get one record |
+| POST | `/api/internships` | Create |
+| PUT | `/api/internships/:id` | Update full record |
+| PATCH | `/api/internships/:id` | Update supplied fields |
+| DELETE | `/api/internships/:id` | Delete |
+
+List filters: `domain`, `work_mode` (`Remote`, `Hybrid`, `On-site`), and `search`. Pagination defaults to page 1 and limit 10 (maximum 100).
+
+## Example POST JSON
+```json
+{
+  "title":"Backend Developer Intern",
+  "company":"Example Studio",
+  "domain":"Software Development",
+  "location":"Remote, India",
+  "work_mode":"Remote",
+  "duration_weeks":8,
+  "stipend":"₹8,000/month",
+  "description":"Assist with backend APIs and testing.",
+  "skills":["Node.js","Express","SQL"]
+}
 ```
 
-Then visit `http://localhost:8000`.
-
-## Test checklist
-- [ ] Desktop layout (1280px and above)
-- [ ] Tablet layout (768px)
-- [ ] Mobile layout (360px)
-- [ ] Search by title, company, and skill
-- [ ] Combine domain and work-mode filters
-- [ ] Clear filters from the empty state
-- [ ] Save and unsave a listing
-- [ ] Open and close details with the mouse and keyboard
-- [ ] Navigate controls using Tab and Shift+Tab
-- [ ] Confirm there is no horizontal overflow
-
-## Data note
-The brief supplies a fictional internship-records seed. This project uses fictional sample records in `app.js` so it runs offline without an external API. Replace the sample `records` array with the supplied seed JSON if the reviewer expects that exact dataset.
-
-## Deployment
-You can publish this static site with GitHub Pages:
-1. Create a public repository and upload `index.html`, `styles.css`, `app.js`, and `README.md`.
-2. Open **Settings → Pages** in the repository.
-3. Choose **Deploy from a branch**, select `main` and `/ (root)`, and save.
-4. Wait for the deployment URL to appear, then open it in a private/incognito window to verify access.
-5. Submit the repository URL or the live Pages URL as allowed by your dashboard.
-
-## Scope
-This is a demonstration board, not a live job platform. Listing content is fictional and no application submissions are processed.
+The database is created at `data/internships.db`; records persist between server restarts. Seed records are fictional demonstration data. GitHub Pages cannot run Node.js; submit the public repository or deploy to a Node.js host that supports persistent storage. Node may show an experimental `node:sqlite` warning; this alone is not a failure.

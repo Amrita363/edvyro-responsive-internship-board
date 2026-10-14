@@ -1,22 +1,12 @@
-# Responsive and accessibility test notes
-
-Record actual results before submitting.
-
-| Viewport | What to verify | Result |
-|---|---|---|
-| 360 × 800 | Single-column cards; no horizontal scrolling; filters stack vertically | Pending manual test |
-| 768 × 1024 | Two-column cards; search and filters remain usable | Pending manual test |
-| 1366 × 768 | Three-column cards; hero and filter panel fit comfortably | Pending manual test |
-
-## Keyboard checks
-- Tab to the skip link, navigation, search, filters, reset, save buttons, and details buttons.
-- Use Enter/Space to activate buttons.
-- Open a details dialog and close it using the close button or Escape.
-- Confirm focus indicators are visible.
-
-## Functional checks
-- Search for “Python”, “MetricMint”, and “SQL”.
-- Select “Web Development” and then “Remote”.
-- Search for a term that does not exist and confirm the empty state appears.
-- Use “Clear all filters” and confirm all records return.
-- Save and unsave a listing and confirm its state changes.
+# Manual test checklist
+- [ ] npm install completes.
+- [ ] npm run seed inserts six fictional records.
+- [ ] GET /api/health returns 200.
+- [ ] List endpoint returns records and pagination metadata.
+- [ ] Search and filters work.
+- [ ] Detail endpoint returns 200 for existing IDs and 404 for missing IDs.
+- [ ] Valid POST returns 201; invalid POST returns 400 with field details.
+- [ ] PUT and PATCH update records.
+- [ ] DELETE removes a record and unknown IDs return 404.
+- [ ] Restart server and verify SQLite data persists.
+- [ ] Add real screenshots of terminal/API tests before submission.
